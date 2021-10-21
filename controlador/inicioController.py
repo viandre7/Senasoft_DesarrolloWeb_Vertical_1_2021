@@ -1,12 +1,13 @@
 from app import app
-
-
+from modelo.usuarios import *
+from modelo.roles import *
+from modelo.empleados import *
+from modelo.cargos import *
 from flask import Flask, request, render_template,jsonify,session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
 
 
-from flask import Flask, render_template, session as _session
 
 @app.route('/')
 def inicio():
@@ -18,7 +19,11 @@ def acercaDeNosotros():
 
 @app.route('/inicioUsuario')
 def consultarSolicitud():
-    return render_template('user/inicioUsuario.html')
+    if("user" in session):
+        return render_template('user/inicioUsuario.html')
+    else:
+        return render_template('frmIniciarSesion.html')
+
 
 
 @app.route('/mostrarIniciarSesion')
