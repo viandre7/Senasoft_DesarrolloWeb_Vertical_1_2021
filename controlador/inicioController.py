@@ -25,6 +25,13 @@ def consultarSolicitud():
         return render_template('frmIniciarSesion.html')
 
 
+@app.route('/subirHistoria')
+def subirHistoria():
+    return render_template('user/cargarHistoria.html')
+
+@app.route('/consultarHistoria')
+def consultarHistoria():
+    return render_template('user/consultarHistoria.html')
 
 @app.route('/mostrarIniciarSesion')
 def mostrarIniciarSesion():

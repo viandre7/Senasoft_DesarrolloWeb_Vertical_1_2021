@@ -1,0 +1,69 @@
+{% extends "user/index.html" %}
+{% block section %}
+    <script src="../../static/js/consultar.js"></script>
+
+
+    <!-- container fondo azul -->
+    <div class="col-md-10 container fondoSection ">
+        <br>
+        <!-- container fondo blanco -->
+        <div class="col-md-11 ml-5" style="background:white ; box-shadow: 0px 4px 5px #55575a;" >
+            <!-- row que contiene la informacion -->
+            <div class="row justify-content-center " >
+        
+                <!-- container de las opciones -->
+                <div class="col-md-12 contaiener mt-4"  >
+                    <h3 style="text-align: center;"><strong>Consultar historia clínica</strong></h3><br>
+                
+                    <form action="" class="form-group" id="frmConsultarHistoria" method="POST">
+                        <!--Row que contiene las opciones  -->
+                        <div class="row justify-content-center mt-3" >
+                            <div class="col-11">
+                                
+                                <table id="tblConsulta" align="center" class="table table-bordered">
+                                    <thead class="bg-success text-white">
+                                        <tr class="text-center">
+                                            <th width="25%">Fecha de la historia</th>
+                                            <th width="20%">Identificación</th>
+                                            <th width="25%">Nombres</th>
+                                        <th width="20%">Apellidos</th>
+                                        <th width="10%">Archivo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr id="fila" class="primeraFila">
+                                        <td id="tblFecha"> </td>
+                                        <td id="tblIdentificacion"></td>
+                                        <td id="tblNombres"></td>
+                                        <td id="tblApellidos"></td>
+                                        <td style="text-align: center;" id="anexo" class=""><a id="verPDF" href=""  target="_blank"><i class="fas fa-file-pdf"></i></a></td>
+                                        <!-- <td id="pAccion" align="center">
+                                            <button class="btn btn-warning fas fa-edit editar" data-id=" "></button>
+                                        </td> -->
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                            
+                            
+                           
+                           
+                            
+
+                        </div>
+                        <h1></h1>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br>    
+    </div>
+
+{% endblock %}
+   
+<!-- 
+</body>
+</html> -->

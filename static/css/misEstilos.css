@@ -23,6 +23,7 @@
     background: rgba(14, 188, 188, 0.487);
   }
   
+  
   .head a {
     float: left;
     display: block;
@@ -36,7 +37,34 @@
   .head a:hover {
     background-color: rgb(243, 248, 250);
     color:#4347CF;
+    font-weight: bold;
   }
+
+
+
+  
+  .submit-btn {
+    border: none;
+    width: 27%;
+    background: #545BFF;
+    color: white;
+    font-size: 17px;
+    font-weight:bolder;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+  } 
+
+.submit-btn:hover{
+    background: #4347CF;
+    color: white;
+    
+
+}
 
 
 

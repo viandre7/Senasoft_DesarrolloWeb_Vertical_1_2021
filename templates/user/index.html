@@ -12,6 +12,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+    
+    <!-- Data table -->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+    
     <!-- CSS -->
     <link rel="stylesheet" href="../static/css/misEstilos.css"> 
     <link rel="stylesheet" href="../static/css/alertify.css">
@@ -31,10 +45,10 @@
                     <a class="navbar-brand" href=""  style="color:#545BFF; font-weight:bold; font-size: 30px;">
                         <img src="/static/recursos/BoxFileNegro.png" width="70" height="70" alt="">
                     </a>
-                    <a class="nav-link" href="/mostrarIniciarSesion" > <i class="fas fa-folder-open"></i>Consultar historia </a>           
-                    <a class="nav-link" href="#"> <i class="fas fa-cloud-download-alt"></i>Descargar formato </a>           
                     <a class="nav-link" href="#"> <i class="fas fa-chalkboard-teacher"></i>¿Cómo funciona? </a>           
-                    <a class="nav-link" href="#"> <i class="fas fa-file-pdf"></i></i>Subir historia</a>           
+                    <a class="nav-link" href="#"> <i class="fas fa-cloud-download-alt"></i>Descargar formato </a>           
+                    <a class="nav-link" href="/consultarHistoria" > <i class="fas fa-folder-open"></i>Consultar historia </a>           
+                    <a class="nav-link" href="/subirHistoria"> <i class="fas fa-file-pdf"></i></i>Subir historia</a>           
                     <a class="nav-link" href="#"> <i class="fas fa-sign-out-alt"></i>Salir</a>           
 
                  

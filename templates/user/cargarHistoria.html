@@ -1,0 +1,51 @@
+{% extends "user/index.html" %}
+{% block section %}
+
+    <!-- container fondo azul -->
+    <div class="col-md-10 container fondoSection ">
+        <br>
+        <!-- container fondo blanco -->
+        <div class="col-md-11 ml-5" style="background:white ; box-shadow: 0px 4px 5px #55575a;" >
+            <!-- row que contiene la informacion -->
+            <div class="row justify-content-center " > <br>             
+                <!-- container de las opciones -->
+                <div class="col-md-12 contaiener mt-4" >
+                    <h3 style="text-align: center;"><strong>Cargar historia clínica</strong></h3>
+                
+                    <form action="" class="form-group" id="frmCargarHistoria" method="POST">
+                        <!--Row que contiene las opciones  -->
+                        <div class="row justify-content-center mt-2">
+
+                            
+                           <div class="col-md-12 justify-content-center">
+                                <div class="justify-content-center aling-item-center text-center mt-3">
+                                <label class="form-label text-center font-family" ><h4>Seleccione archivo</h4></label>
+                                      <div id="divImagen" class="justify-content-center aling-item-center text-center">
+                                        <i id="data" class="fas fa-file-pdf" style=" font-size:62px" ></i>
+                                        </div>
+                                 </div>
+                                 <br>
+                                 <p style="text-align: center; font-family">Sólo se aceptan archivos en formatos pdf</p>
+                            </div>
+
+                            
+                            <h1></h1>
+                            <div style="text-align: center;" class="mb-3 mt-4">
+                                <button style="width:100%" type="button" class="btn submit-btn font-family" id="btncrear">Crear cuenta</button>
+                            </div>
+
+                        </div>
+                        <h1></h1>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br>    
+    </div>
+
+{% endblock %}
+   
+<!-- 
+</body>
+</html> -->
