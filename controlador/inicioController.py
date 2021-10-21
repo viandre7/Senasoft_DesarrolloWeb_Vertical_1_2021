@@ -20,6 +20,9 @@ def acercaDeNosotros():
 def consultarSolicitud():
     return render_template('user/inicioUsuario.html')
 
+@app.route('/subirHistoria')
+def subirHistoria():
+    return render_template('user/cargarHistoria.html')
 
 @app.route('/mostrarIniciarSesion')
 def mostrarIniciarSesion():
