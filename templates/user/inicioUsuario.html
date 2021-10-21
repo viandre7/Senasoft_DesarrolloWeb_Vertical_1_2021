@@ -1,0 +1,91 @@
+{% extends "user/index.html" %}
+{% block section %}
+
+    <!-- container fondo azul -->
+    <div class="col-md-10 container fondoSection ">
+        <br>
+        <!-- container fondo blanco -->
+        <div class="col-md-11 ml-5" style="background:white ; box-shadow: 0px 4px 5px #55575a;" >
+            <!-- row que contiene la informacion -->
+            <div class="row justify-content-center " >
+                <!-- centrar el logo -->
+                <div class="row justify-content-center">
+                    <div class="col-md-12 " >
+                        <img src="/static/recursos/BoxFileNegro.png" width="200" height="200" alt="">
+                    </div>
+                </div>
+                <!-- container de las opciones -->
+                <div class="col-md-12 contaiener" >
+                    <h3 style="text-align: center;"><strong>Seleccione la opción que desee ejecutar</strong></h3>
+                
+                    <form action="" class="form-group" id="frmRegistro" method="POST">
+                        <!--Row que contiene las opciones  -->
+                        <div class="row justify-content-center mt-2">
+                        
+                            <div class="col-sm-4 btn btn-personal mt-3" style="box-shadow: 0px 4px 5px #55575a; border-radius:15px">
+                                <div class="row justify-content-center mt-4">
+                                    <div class="col-4">
+                                        <i class="fas fa-list-ul fa-4x"></i>
+                                    </div>
+                                    <div class="col-8">
+                                        <h3 class=""><strong>Subir historia clinica</strong></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="col-sm-1"></div>
+
+                            <div class="col-sm-4 btn btn-personal mt-3" style="box-shadow: 0px 4px 5px #55575a; border-radius:15px">
+                                <div class="row justify-content-center mt-4">
+                                    <div class="col-4">
+                                        <i class="fas fa-folder-open fa-4x"></i>
+                                    </div>
+                                    <div class="col-8">
+                                        <h3 class=""><strong>Consultar historia clínica</strong></h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h1></h1>
+
+                            <div class="col-sm-4 btn btn-personal mt-4 mb-4" style="box-shadow: 0px 4px 5px #55575a; border-radius:15px">
+                                <div class="row justify-content-center mt-4">
+                                    <div class="col-4">
+                                        <i class="fas fa-cloud-download-alt fa-4x"></i>
+                                    </div>
+                                    <div class="col-8">
+                                        <h3 class=""><strong>Descargar formato</strong></h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-1"></div>
+
+                            <div class="col-sm-4 btn btn-personal mt-4 mb-4" style="box-shadow: 0px 4px 5px #55575a; border-radius:15px">
+                                <div class="row justify-content-center mt-4">
+                                    <div class="col-4">
+                                        <i class="fas fa-chalkboard-teacher fa-4x"></i>
+                                    </div>
+                                    <div class="col-8">
+                                        <h3 class=""><strong>¿Como funciona?</strong></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                        <h1></h1>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br>    
+    </div>
+
+{% endblock %}
+   
+<!-- 
+</body>
+</html> -->

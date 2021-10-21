@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="icon" type="image/png" href=""> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/fondos.css">
+    <link rel="stylesheet" href="../static/css/iniciarSesion.css">
+    <link rel="stylesheet" href="../static/css/misEstilos.css">
+    <link rel="stylesheet" href="../static/css/registrarse.css">
+    <link rel="stylesheet" href="../static/css/alertify.css">
+    <!-- JS -->
+    <script src="../static/js/mostrarPassword.js"></script>
+    <script src="../static/js/respuestaSol.js"></script>
+    <script src="../static/js/alertify.js"></script>
+    <title>Alcaldía Buena Vida</title>
+</head>
+<body>
+  
+    <header style="border: 5%; " id="top">
+        <div class="row justify-content-center" >
+            <div class="col-md-10" style=" box-shadow: 0px 10px 10px #55575a; padding: auto">
+                <div class="head d-flex align-items-center"> 
+                    <a class="navbar-brand" href="/" style="color:#38d39f; font-weight:bold; font-size: 30px;">BuenaVida</a>
+                    <a class="nav-link " href="/"><i class="fas fa-home  fa-xs"></i>Inicio</a>
+                    <a class="nav-link" href="/acercaDeNosotros"><i class="fas fa-users"></i>Acerca de nosotros</a>
+                    <a class="nav-link" href="/consultarSolicitud"><i class="fas fa-chalkboard-teacher"></i>Consultar solicitud</a>
+                    <a class="nav-link" href="/registrarse"><i class="fas fa-user-plus  fa-xs"></i>Registrarse</a>
+                    <a class="nav-link" href="/mostrarIniciarSesion" > <i class="fas fa-user-check fa-xs"></i>Iniciar sesión </a>           
+                    <!-- <a href="javascript:void(0);" class="icon" onclick="Menu()"><i class="fa fa-bars"></i></a> -->
+                </div>  
+            </div>
+        </div>
+    </header>
+ 
+    <section>
+        {% block section %}
+        {% endblock %}
+
+    </section>
+
+    <footer class="page-footer font-small">
+        <div class="container " >
+            <div class="row justify-content-center">
+                <div class="col-md-12 " style=" box-shadow: 0px 4px 5px #55575a;">
+                    <h1></h1>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <!--Información -->
+                            <div class="col-md-3">
+                                <div class="row justify-content-center text-start">
+                                    <div class="col-12">
+                                        <h5 class="font-weight-bold ">Información</h5>
+                                    </div>
+                                    <div class="col-12  ">
+										<a href="sobrenosotros.frm.php" id="foot" target="_blank" style="text-decoration:none; color:black">Acerca de nosotros</a>
+									</div>
+                                    <div class="col-12">
+                                        <a href="#" target="_blank"  style="text-decoration:none; color:black">Como funciona</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Espacio -->
+                            <hr class="clearfix w-100 d-md-none">
+                            <!--Terminos y condiciones -->
+                            <div class="col-md-3">
+                                <div class="row justify-content-center text-start">
+                                <!-- Content -->
+                                    <div class="col-12">
+                                        <h5 class="font-weight-bold  ">Términos</h5>
+                                    </div>
+                                    <div class="col-12">
+                                        <a href="#" id="foot" target="_blank" style="text-decoration:none; color:black" >Politica de Privaciadad</a>
+                                    </div>
+                                    <div class="col-12  text-nowrap bd-highlight">
+                                        <a href="#"  style="text-decoration:none; color:black">Términos y condiciones </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Espacio -->
+                            <hr class="clearfix w-100 d-md-none">
+
+                            <div class="col-md-3">
+                                <div class="row justify-content-center text-start">
+                                    <ul class="list-unstyled mt-1">
+                                        <li>
+                                            <a  href="#" ><i class="fas fa-comments mr-3"></i>Contactenos</a>
+                                        </li>
+                                        <li>
+                                            <a><i class="fas fa-home mr-3" ></i>Alcaldía Buena Vida</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="font-size: 15px;" style="text-decoration:none; color:#23c08c"><i class="fas fa-envelope mr-3"></i>buenavida@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <a href="#top" style="color: #38d39f;"><i class="fas fa-chevron-up"></i></a>
+                        <!-- Copyright -->
+                        <div class="card-footer" style="background: white;">
+                            <div class="row justify-content-center " style="opacity: 0.5;">
+                                Copyright © 2021 | Alcaldía BuenaVida - Todos los derechos reservados
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+         
+    <br>
+       
+
+
+  
+
+  
+    
+</body>
+</html>

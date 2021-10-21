@@ -1,0 +1,138 @@
+.font-family{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.form {
+    margin-top: 80px;
+    position: relative;
+    padding: 40px 40px 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+  }
+
+
+  .body2 {
+    margin: 0;
+    background: url('../recursos/laptop.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.form .input-group {
+    position: relative;
+ }
+
+.form .input-group input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
+
+.form .input-group label {
+    position: absolute;
+    padding: 10px 0;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: .3s ease-out;
+  }
+
+.form .input-group input:focus + label,
+.form .input-group input:valid + label {
+    transform: translateY(-15px);
+    color: #b9d3ca;
+    font-size: .8rem;
+  }
+
+  /* .form h1, h3{
+      color: #b9d3ca;
+  } */
+
+.submit-btn {
+    border: none;
+    width: 50%;
+    background: #545BFF;
+    color: white;
+    font-size: 20px;
+    font-weight:bolder;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+  } 
+
+.submit-btn:hover{
+    background: #4347CF;
+    color: white;
+
+}
+
+.link{
+    text-decoration: none;
+    color: #545BFF;
+    font-weight: 700;
+}
+.link:hover{
+     color: #4347CF;
+     text-decoration: none;
+}
+
+@media(min-width:768px)
+{
+    .formulario{
+        margin: auto;
+        width: 500px;
+        margin-top: 150px;
+        border-radius: 2%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+ 
+  /* .form img {
+    position: absolute;
+    width: 100px;
+    background: rgba(255,255,255, 0.8);
+    border-radius: 50%;
+  } */
+  
+ 
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

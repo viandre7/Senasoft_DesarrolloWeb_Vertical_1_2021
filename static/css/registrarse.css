@@ -1,0 +1,78 @@
+.font-family{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+
+
+
+
+.h2Nombre{
+      color: #000000;
+      font-weight:bold;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      text-align: center; 
+      font-size: 35px"
+}
+.h3Nombre{
+    color: #545BFF;
+    font-weight:bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center; 
+}
+
+  .h5Llenar{
+    font-weight:bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center; 
+  }
+
+
+  .submit-btn {
+    border: none;
+    width: 27%;
+    background: #545BFF;
+    color: white;
+    font-size: 17px;
+    font-weight:bolder;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+  } 
+
+.body2 {
+    margin: 0;
+    background: url('../recursos/laptop.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.submit-btn:hover{
+    background: #4347CF;
+    color: white;
+
+}
+
+.link{
+    text-decoration: none;
+    color: #545BFF;
+    font-weight: 600;
+}
+.link:hover{
+     color: #4347CF;
+}
+
+
+@media(min-width:768px)
+{
+    .formulario{
+        margin: auto;
+        width: 500px;
+        margin-top: 150px;
+        border-radius: 2%;
+    }
+}

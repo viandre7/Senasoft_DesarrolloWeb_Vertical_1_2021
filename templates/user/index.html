@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="icon" type="image/png" href=""> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/misEstilos.css"> 
+    <link rel="stylesheet" href="../static/css/alertify.css">
+    <!-- JS -->
+    <script src="../static/js/mostrarPassword.js"></script>
+    <script src="../static/js/respuestaSol.js"></script>
+    <script src="../static/js/alertify.js"></script>
+    <title>BoxFile</title>
+</head>
+<body>
+  
+    <header style="border: 5%; " id="top">
+    
+        <div class="row justify-content-center" >
+            <div class="col-md-10" style=" box-shadow: 0px 10px 10px #55575a; padding: auto">
+                <div class="head d-flex align-items-center"> 
+                    <a class="navbar-brand" href=""  style="color:#545BFF; font-weight:bold; font-size: 30px;">
+                        <img src="/static/recursos/BoxFileNegro.png" width="70" height="70" alt="">
+                    </a>
+                    <a class="nav-link" href="/mostrarIniciarSesion" > <i class="fas fa-folder-open"></i>Consultar historia </a>           
+                    <a class="nav-link" href="#"> <i class="fas fa-cloud-download-alt"></i>Descargar formato </a>           
+                    <a class="nav-link" href="#"> <i class="fas fa-chalkboard-teacher"></i>¿Cómo funciona? </a>           
+                    <a class="nav-link" href="#"> <i class="fas fa-file-pdf"></i></i>Subir historia</a>           
+                    <a class="nav-link" href="#"> <i class="fas fa-sign-out-alt"></i>Salir</a>           
+
+                 
+                  
+                </div>  
+            </div>
+        </div>
+    </header>
+ 
+    <section>
+        {% block section %}
+        {% endblock %}
+
+    </section>
+
+    <footer class="page-footer font-small">
+        <div class="container col-md-10" >
+            <div class="row justify-content-center">
+                <div class="col-md-12 " style=" box-shadow: 0px 4px 5px #55575a;">
+                    <h1></h1>
+                    <div class="container">
+                        
+                        <a href="#top" style="color: #545BFF;"><i class="fas fa-chevron-up"></i></a>
+                        <!-- Copyright -->
+                        <div class="card-footer" style="background: white;">
+                            <div class="row justify-content-center " style="opacity: 0.5;">
+                                Copyright © 2021 | BoxFile - Todos los derechos reservados
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+         
+    <br>
+       
+
+
+  
+
+  
+    
+</body>
+</html>
