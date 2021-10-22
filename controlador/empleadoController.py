@@ -13,8 +13,16 @@ from werkzeug.utils import secure_filename
 
 
 
+   
 @app.route('/agregarEmpleado', methods=['POST'])
 def agregarEmpleado():
+    """[summary]
+    Funcion que agrega datos para crear persona, empleado y usuario 
+    en la base de datos
+
+    Returns:
+        [json]: [Retorna un objeto json con  3 atributos]
+    """
     correo = request.form['txtCorreo']
     cedula = request.form['txtCedula']
     nombre = request.form['txtNombre']
@@ -44,9 +52,8 @@ def agregarEmpleado():
             print(f)
             filename = secure_filename(f.filename)
             extension =filename.rsplit('.',1)[1].lower()
-            nuevoNombre = str(persona.id_persona) + "." + extension
-            f.save(os.path.join(app.config['UPLOAD_FOLDER'], nuevoNombre))
-
+            nuevoNombre = str(persona.num_doc) + "." + extension
+            f.save(os.path.join(app.config['UPLOAD_FOLDER']+"/firmas", nuevoNombre))
             datos= persona.num_doc
             estado=True
             mensaje= 'Empleado agregado exitosamente'

@@ -7,6 +7,8 @@ from API.documento import *
 from flask import Flask, request, render_template,jsonify,session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
+from werkzeug.utils import secure_filename
+
 
 
 @app.route('/clinica')
