@@ -9,8 +9,14 @@ import cv2
 import img2pdf
 from PIL import Image
 
+
 @app.route('/subirArchivo',methods=['POST'])
 def subirArchivo():
+    """[summary]
+    Función que permite subir archivos 
+    Returns:
+        [type]: [description]
+    """
     estado = False
     datos = None
     try:

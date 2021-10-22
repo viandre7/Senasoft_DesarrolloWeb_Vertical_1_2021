@@ -26,7 +26,6 @@ from controlador.usuarioController import *
 from controlador.inicioController import *
 from controlador.historiaController import *
 from controlador.empleadoController import *
-from controlador.consultaController import *
 
 
 # Iniciar la aplicacion

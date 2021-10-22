@@ -31,8 +31,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <!-- Recorrer la tabla aplicandole los datos de la consulta que viene de la db - consultaController.py -->
                                     {% for d in datos %}
-                                    
                                         <tr id="fila" class="primeraFila">
                                             <td style="text-align: center;" id="tblFecha">{{d.fecha_consulta}} </td>
                                             <td style="text-align: center;" id="tblIdentificacion">{{d.paciente.person.num_doc}}</td>

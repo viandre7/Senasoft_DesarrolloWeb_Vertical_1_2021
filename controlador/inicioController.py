@@ -17,8 +17,12 @@ from modelo.personas import *
 
 @app.route('/')
 def inicio():
-    user = Usuario.query.all()
-    print(user)
+    """[summary]
+    Función que permite renderizar al formulario
+    Iniciar Sesion 
+    Returns:
+        [render_template]: [El formulario al cual va a renderizar]
+    """
     return render_template('frmIniciarSesion.html')
 
 
@@ -66,8 +70,6 @@ def consultarHistoria():
         [render_template: El formulario al cual va a renderizar]
     """
     informacion = Consulta.query.all()
-    print(informacion)
-    print('___________________')
     return render_template('user/consultarHistoria.html', datos=informacion)
 
 
