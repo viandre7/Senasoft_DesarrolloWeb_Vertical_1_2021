@@ -1,3 +1,6 @@
+
+
+
 /** Acción del evento click del btnCrear */
 $(function(){
     $("#btncrear").click(function(){
@@ -31,11 +34,12 @@ function agregarEmpleado(){
         processData: false,
         success: function(resultado){
             console.log(resultado);
-            if(resultado.estado){                
+            if(resultado.estado){      
+                swal("Exito!!", resultado.mensaje + 
+                " ", "danger");          
+             
                 limpiarFrm();
 
-                swal("¡Correcto!!", resultado.mensaje + 
-                " ", "info"); 
                 window.location="/mostrarIniciarSesion"
             }else{
                 limpiarFrm();
@@ -65,6 +69,6 @@ function limpiarFrm() {
     $("#txtCelular").val("");
     $("#txtCargo").val("");
     $("#txtPassword").val("");
-    $("#fileFoto").val("");
+    $("#txtImagen").val("");
 }
 

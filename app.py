@@ -21,7 +21,6 @@ app.config['UPLOAD_FOLDER']= './static/archivos'
 from keyword import *
 
 from controlador.documento import *
-from controlador.prueba import *
 from controlador.usuarioController import *
 from controlador.inicioController import *
 from controlador.historiaController import *

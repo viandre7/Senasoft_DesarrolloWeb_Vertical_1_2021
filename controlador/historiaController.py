@@ -1,19 +1,23 @@
 from app import app
-import requests
 from app import *
 from datetime import datetime
+from werkzeug.utils import secure_filename
+from flask import Flask, request, render_template, jsonify, session, url_for
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import exc
+from pdf2image import convert_from_bytes
+from pdf2image.exceptions import *
+from typing import Container
+import os
+import base64
+import socket
+import cv2
+import img2pdf
+from PIL import Image
+from shutil import rmtree
 from modelo.personas import *
 from modelo.pacientes import *
 from modelo.consultas import *
-from modelo.usuarios import *
-import base64
-import socket
-from werkzeug.utils import secure_filename
-from flask import Flask, request, render_template, jsonify, session
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import exc
-from werkzeug.utils import secure_filename
-
 
 
 project_id ='119257377126'
@@ -33,9 +37,7 @@ def subirArchivo():
 
     file_path = './static/archivos/historiasClinicas/'+str(filename)
 
-    print(file_path)
     data = process_document(project_id,location ,processor_id,file_path)
-    print("aqui la data")
     print(data)
 
     session["user"]
@@ -126,12 +128,11 @@ def subirArchivo():
                 db.session.add(consulta)
                 db.session.commit()
 
-
-                pri = request.files['Filename']
-                f = secure_filename(pri.filename)
-                extension =filename.rsplit('.',1)[1].lower()
+                f = request.files['Filename']
+                filename = secure_filename(f.filename)
+                extension = filename.rsplit('.',1)[1].lower()
                 nuevoNombre = str(todo.num_doc) + "." + extension
-                pri.save(os.path.join(app.config['UPLOAD_FOLDER']+"/historiasClinicas", nuevoNombre))
+                f.save(os.path.join(app.config['UPLOAD_FOLDER']+"/historiasClinicas", nuevoNombre))
             else:
                 persona = Persona()
                 persona.num_doc = documento
@@ -144,11 +145,11 @@ def subirArchivo():
                 doc = persona.num_doc
 
                 #aqui se edita el documento y se renombra
-                dos = request.files['Filename']
-                f = secure_filename(dos.filename)
+                f = request.files['Filename']
+                filename = secure_filename(f.filename)
                 extension =filename.rsplit('.',1)[1].lower()
-                nuevoNombre = str(doc) + "." + extension
-                f.save(os.path.join(app.config['UPLOAD_FOLDER']+"/historiasClinicas", f))
+                nuevoNombre =str(doc)+"."+ extension
+                f.save(os.path.join(app.config['UPLOAD_FOLDER']+"/historiasClinicas", nuevoNombre))
 
                 #aqui se recoje la id de persona
                 id_per = persona.id_persona
@@ -190,4 +191,78 @@ def subirArchivo():
             mensaje = str(ex)
     else:
         mensaje = "Faltan datos"
+    return jsonify({"estado":estado, "datos":datos, "mensaje":mensaje})
+
+@app.route('/convertirArchivo',methods=['POST'])
+def convertirArchivo():
+    outputDir = "/static/archivos/imagenes"
+    estado = False
+    datos = None
+    nomArchiv = request.form['nombreArchivo']
+    try:
+        if not os.path.isdir(outputDir):
+            os.mkdir(outputDir)
+
+        images = convert_from_bytes(open(r'static/archivos/historiasClinicas/'+nomArchiv+'.pdf','rb').read())
+        counter = 1
+
+        for i, image in enumerate(images):
+            fname = "static/archivos/imagenes/"+nomArchiv+"-"+ str(counter) + ".png"
+            counter+=1
+            image.save(fname, "PNG")
+
+        datos= None
+        estado = True
+        mensaje = "Convertido correctamente"
+    except exc.SQLAlchemyError as ex:
+        mensaje = str(ex)
+    return jsonify({"estado":estado, "datos":datos, "mensaje":mensaje})
+
+
+@app.route('/convertirEscalaGrises',methods=['POST'])
+def convertirEscalaGrises():
+    estado = False
+    datos = None
+    nomArchiv = request.form['nombreArchivo']
+
+    try:
+        counter = 1
+        while counter<=2:
+            #lecturaDeImagen
+            ruta = 'static/archivos/imagenes/'+str(nomArchiv)+'-'+str(counter)+'.png'
+            imagen = cv2.imread(ruta,0)
+            cv2.imwrite(ruta,imagen)
+            counter+=1
+
+        datos= None
+        estado = True
+        mensaje = "Convertido a Escala de Grises correctamente"
+    except exc.SQLAlchemyError as ex:
+        mensaje = str(ex)
+    return jsonify({"estado":estado, "datos":datos, "mensaje":mensaje})
+
+
+@app.route('/convertirImagen', methods=['POST'])
+def convertirImagen():
+    estado = False
+    datos = None
+    nomArchiv = request.form['nombreArchivo']
+
+    try:
+
+        image1 = Image.open(r'static/archivos/imagenes/'+nomArchiv+'-1.png')
+        image2 = Image.open(r'static/archivos/imagenes/'+nomArchiv+'-2.png')
+
+        im1 = image1.convert('RGB')
+        im2 = image2.convert('RGB')
+
+        imagelist = [im2]
+
+        im1.save(r'static/archivos/historiasClinicas/'+nomArchiv+'.pdf',save_all=True, append_images=imagelist)
+
+        datos= None
+        estado = True
+        mensaje = "Convertido a pdf correctamente"
+    except exc.SQLAlchemyError as ex:
+        mensaje = str(ex)
     return jsonify({"estado":estado, "datos":datos, "mensaje":mensaje})
