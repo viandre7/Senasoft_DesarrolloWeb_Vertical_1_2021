@@ -15,7 +15,8 @@ def inicio():
 
 @app.route('/registrarse')
 def acercaDeNosotros():
-    return render_template('frmRegistrarse.html')
+    cargos = Cargo.query.all()
+    return render_template('frmRegistrarse.html', cargo = cargos)
 
 @app.route('/inicioUsuario')
 def consultarSolicitud():
@@ -36,3 +37,9 @@ def consultarHistoria():
 @app.route('/mostrarIniciarSesion')
 def mostrarIniciarSesion():
     return render_template('frmIniciarSesion.html')
+
+@app.route("/salir")
+def salir():
+    session.clear()
+    mensaje="Ha cerrado la sesión"
+    return render_template("frmIniciarSesion.html",cerrar=mensaje)

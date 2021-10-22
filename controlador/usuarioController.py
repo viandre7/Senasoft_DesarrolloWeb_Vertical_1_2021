@@ -34,3 +34,7 @@ def iniciarSesion():
     else:
         mensaje="Faltan datos"
     return render_template("frmIniciarSesion.html",mensaje=mensaje)
+
+
+
+

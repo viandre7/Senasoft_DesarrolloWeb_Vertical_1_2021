@@ -19,6 +19,7 @@ app.config['UPLOAD_FOLDER']= './static/archivos'
 #Lllamado a los controladores
 from controlador.usuarioController import *
 from controlador.inicioController import *
+from controlador.empleadoController import *
 
 # Iniciar la aplicacion
 if __name__ == "__main__":

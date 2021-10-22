@@ -1,5 +1,6 @@
 {% extends "index.html" %}
 {% block section %}
+    <script src="/static/js/empleado.js"></script>
 
     
     <div class="col-md-10 container  ">
@@ -28,14 +29,14 @@
                                 <div class="col-md-6">
                                     <div class="input-group mb-3 m-1 p-1">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-at"></i></span>
-                                        <input type="email" class="form-control" placeholder="Correo" id="txtCorreo" name="txtCorreo">
+                                        <input type="email" class="form-control" placeholder="Correo" id="txtCorreo" name="txtCorreo" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group mb-3 p-1">
                                         <span class="input-group-text" id="basic-addon1"><i class="far fa-id-card"></i></span>
-                                        <input type="number" style="border: 1px solid #aaa" class="form-control" placeholder="Numero de documento" id="txtCedula"
-                                            name="txtCedula" >
+                                        <input type="number" style="border: 1px solid #aaa" class="form-control" placeholder="Numero de documento" id="txtCedula" 
+                                            name="txtCedula" required aria-label="E" aria-describedby="basic-addon1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" pattern="[0-9]{10}"  >
                                     </div>
                                 </div>
                                                         
@@ -46,14 +47,14 @@
                                     <div class="input-group mb-3 p-1">
                                         <span class="input-group-text" id="basic-addon1"><i class="far fa-id-card"></i></span>
                                         <input type="text" class="form-control" style="border: 1px solid #aaa;" placeholder="Nombres" id="txtNombre"
-                                            name="txtNombre" >
+                                            name="txtNombre" required>
                                     </div>
                                 </div>  
                                 <div class="col-md-6">
                                     <div class="input-group mb-3 p-1">
                                         <span class="input-group-text" id="basic-addon1"><i class="far fa-id-card"></i></span>
                                         <input type="text" style="border: 1px solid #aaa" class="form-control" placeholder="Apellidos" id="txtApellido"
-                                            name="txtApellido" >
+                                            name="txtApellido" required >
                                     </div>
                                 </div>
     
@@ -65,7 +66,7 @@
                                     <div class="input-group mb-3 p-1">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-mobile-alt"></i></span>
                                         <input type="tel" class="form-control" maxlength="10" placeholder="Celular"
-                                            id="txtcelular" name="txtcelular" aria-label="E" aria-describedby="basic-addon1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" pattern="[0-9]{10}" >
+                                            id="txtCelular" name="txtCelular" aria-label="E" aria-describedby="basic-addon1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" pattern="[0-9]{10}" required>
                                     </div>
                                 </div> 
 
@@ -74,11 +75,13 @@
                                     <div class="input-group p-1 ">
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-transgender-alt"></i></span>
-                                        <select class="form-select col-11 " aria-label=".form-select-lg example" id="txtGenero"
-                                            name="txtGenero" class="font-family">
+                                        <select class="form-select col-11 " aria-label=".form-select-lg example" id="txtCargo"
+                                            name="txtCargo" class="font-family" required>
                                             <option selected>Seleccione un Cargo</option>
-                                            <option value=""></option>
-                                            <option value=""></option>
+                                            {% for c in cargo %}
+                                                <option value="{{c.id_cargo}}">{{c.nombre_cargo}}</option>
+                                            {% endfor%}
+
                                         </select>
                                     </div>
                                 </div>
@@ -90,21 +93,28 @@
                                     <div class="input-group mb-3 p-1">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
                                         <input type="password"  autocomplete="off" style="border: 1px solid #aaa;" class="form-control" placeholder="Contraseña" id="txtPassword"
-                                            aria-label="E" name="txtPassword"  pattern="[A-Z]{1}[0-9]{2}" maxlength="50" aria-describedby="basic-addon1">
+                                             aria-label="E" name="txtPassword"  >
                                         <button id="show_password" class="btn" style="background: #545BFF; color:white" type="button" onclick="mostrarPassword()">
                                             <span class="fa fa-eye-slash icons"></span> </button>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-12 justify-content-center">
-                                <div class="justify-content-center aling-item-center text-center mt-3">
-                                <label class="form-label text-center font-family" ><strong>Seleccione firma</strong></label>
-                                      <div id="divImagen" class="justify-content-center aling-item-center text-center">
-                                        <i id="data" class="fas fa-file-image" style=" font-size:62px" ></i>
+                            <div class="row " >
+                                <div class="col-md-12 ">
+                                    <div class="justify-content-center aling-item-center text-center mt-3">
+                                        <label class="form-label text-center font-family" ><strong>Seleccione firma</strong></label>
+                                        <div id="divImagen" class="justify-content-center aling-item-center text-center">
+                                            <label for="txtImagen">
+                                                <div class="dato justify-content-center aling-item-center text-center" id="file-preview-zone">
+                                                </div> <i id="data" class="fas fa-file-image" style=" font-size:62px" ></i>
+                                            </label>
+                                            <input type="file" name="txtdocu" id="txtdocu" class="file"  >
                                         </div>
-                                 </div>
+                                    </div>
+                                </div>
                             </div>
+
                             <br>
 
                         </div>
