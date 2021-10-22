@@ -9,6 +9,10 @@ from flask import Flask, request, render_template,jsonify,session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
 
+from modelo.consultas import *
+from modelo.pacientes import *
+from modelo.personas import *
+
 
 
 @app.route('/')
@@ -17,12 +21,26 @@ def inicio():
     print(user)
     return render_template('frmIniciarSesion.html')
 
+
 @app.route('/registrarse')
-def acercaDeNosotros():
-    return render_template('frmRegistrarse.html')
+def registrar():
+    """[summary]
+    Función que permite renderizar al frmRegistro
+    Returns:
+        [render_template]: [El formulario al cual va a renderizar]
+    """
+    cargos = Cargo.query.all()
+    return render_template('frmRegistrarse.html', cargo = cargos)
+
 
 @app.route('/inicioUsuario')
-def consultarSolicitud():
+def iniciarSesionUsu():
+    """[summary]
+    Función que permite renderizar al inicio de usuario si la variable user
+    está creada, de lo contrario renderiza de nuevo al formulario
+    Returns:
+        [render_template]: [El formulario al cual va a renderizar]
+    """
     if("user" in session):
         return render_template('user/inicioUsuario.html')
     else:
@@ -31,12 +49,41 @@ def consultarSolicitud():
 
 @app.route('/subirHistoria')
 def subirHistoria():
+    """[summary]
+    Función que permite renderizar al formulario
+    cargarHistoria
+    Returns:
+        [render_template: El formulario al cual va a renderizar]
+    """
     return render_template('user/cargarHistoria.html')
+
 
 @app.route('/consultarHistoria')
 def consultarHistoria():
+    """[summary]
+    Función que permite renderizar al html consultarHistoria
+    Returns:
+        [render_template: El formulario al cual va a renderizar]
+    """
     return render_template('user/consultarHistoria.html')
+
 
 @app.route('/mostrarIniciarSesion')
 def mostrarIniciarSesion():
+    """[summary]
+    Función que permite renderizar al frmRegistro
+    Returns:
+        [render_template: El formulario al cual va a renderizar]
+    """
     return render_template('frmIniciarSesion.html')
+
+@app.route("/salir")
+def salir():
+    """[summary]
+    Funcion creada para cerraar cesion y limpiar la variable session
+    Returns:
+        [type]: [description]
+    """
+    session.clear()
+    mensaje="Ha cerrado la sesión"
+    return render_template("frmIniciarSesion.html",cerrar=mensaje)

@@ -25,7 +25,7 @@ from controlador.prueba import *
 from controlador.usuarioController import *
 from controlador.inicioController import *
 from controlador.historiaController import *
-
+from controlador.empleadoController import *
 
 
 # Iniciar la aplicacion
