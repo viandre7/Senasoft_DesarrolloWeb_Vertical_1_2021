@@ -41,7 +41,7 @@ def convertirArchivo():
         if not os.path.exists(outputDir):
             os.makedirs(outputDir)
         
-        images = convert_from_bytes(open(r'static/archivos/historiasClinicas/'+nomCompl+'.pdf','rb').read())
+        images = convert_from_bytes(open(r'static/archivos/historiasClinicas/'+nomCompl+"_"+fecha+'.pdf','rb').read())
         counter = 1
         
         for i, image in enumerate(images):
