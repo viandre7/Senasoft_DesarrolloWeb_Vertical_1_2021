@@ -1,15 +1,14 @@
 $(function () {
-    $("#btnEnviar").click(function () {
+    $("#btncrear").click(function () {
         subirArchivo();
     });
 
-    var nombreCompleto;
-    var fecha;
+    var filename;
 
     function subirArchivo(){
         const convPNG = new FormData($("#frmCargarHistoria")[0]);
         $.ajax({
-            url: "/subirArchivo",
+            url: "/subirHistoria",
             data: convPNG,
             type: "post",
             dataType: "json",
@@ -19,8 +18,7 @@ $(function () {
             success: function (resultado) {
                 console.log(resultado);
                 if(resultado.estado){
-                    nombreCompleto = (resultado.datos[0]).toString();
-                    fecha = (resultado.datos[1]);
+                    filename = (resultado.datos).toString();
                     convertirArchivo();
                 }
             },
@@ -32,8 +30,7 @@ $(function () {
 
     function convertirArchivo(){
         var parametros = {        
-            nomCompl: nombreCompleto,
-            fechaConsulta: fecha
+            nombreArchivo: filename
         };
         $.ajax({
             url: "/convertirArchivo",
@@ -56,8 +53,7 @@ $(function () {
 
     function convertirEscalaGrises(){
         var parametros = {        
-            nomCompl: nombreCompleto,
-            fechaConsulta: fecha
+            nombreArchivo: filename
         };
         $.ajax({
             url: "/convertirEscalaGrises",
@@ -77,8 +73,7 @@ $(function () {
 
     function convertirImagen(){
         var parametros = {        
-            nomCompl: nombreCompleto,
-            fechaConsulta: fecha
+            nombreArchivo: filename
         };
         $.ajax({
             url: "/convertirImagen",
