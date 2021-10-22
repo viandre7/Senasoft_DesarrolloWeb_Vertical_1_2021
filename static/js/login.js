@@ -5,8 +5,6 @@ $(function(){
 
 
 
-
-
   function login() {
   $.ajax({
     url: "/agregarRespuesta",
