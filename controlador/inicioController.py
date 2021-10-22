@@ -18,7 +18,6 @@ from modelo.personas import *
 @app.route('/')
 def inicio():
     user = Usuario.query.all()
-    print(user)
     return render_template('frmIniciarSesion.html')
 
 
@@ -55,7 +54,11 @@ def subirHistoria():
     Returns:
         [render_template: El formulario al cual va a renderizar]
     """
-    return render_template('user/cargarHistoria.html')
+    if("user" in session):
+        return render_template('user/cargarHistoria.html', user = session["idempleado"])
+    else:
+        return render_template('frmIniciarSesion.html')
+
 
 
 @app.route('/consultarHistoria')

@@ -25,7 +25,9 @@ def iniciarSesion():
             if(usuario!=None):
                 #se crea la variable de sesión
                 session['user'] = login
-                print('Se inicio sesion')
+                id = session['idempleado'] = usuario.id_empleado
+                print("aqui dato del empleado")
+                print(id)
                 return render_template("user/inicioUsuario.html")
             else:
                 mensaje="Credenciales de ingreso no validas"
@@ -34,7 +36,3 @@ def iniciarSesion():
     else:
         mensaje="Faltan datos"
     return render_template("frmIniciarSesion.html",mensaje=mensaje)
-
-
-
-
