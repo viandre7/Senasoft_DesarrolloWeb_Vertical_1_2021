@@ -7,7 +7,6 @@ from modelo.consultas import *
 from modelo.pacientes import *
 from modelo.personas import *
 from datetime import datetime
-from API.documento import *
 from flask import Flask, request, render_template,jsonify,session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
@@ -50,13 +49,13 @@ def listarInformacion():
     # codigo = request.form['txtCodigo']
     # print(codigo)
     try:
-        informacion = Consulta.query.join(Paciente).join(Persona).all()
+        informacion = Consulta.query.join(Paciente).join(Persona).first()
         print(informacion)
         print('___________________')
         if(informacion!=None):
             fechaConsulta = informacion.fecha_consulta
             nuevaFechaConsulta = fechaConsulta.strftime("%Y-%m-%d") 
-            datos=(informacion.paciente.persona.num_doc,informacion.paciente.persona.nombres, informacion.paciente.persona.apellidos,nuevaFechaConsulta)
+            datos=(informacion.paciente.persona.num_doc,informacion.paciente.persona.nombres, informacion.paciente.persona.apellidos, nuevaFechaConsulta)
             estado=True
             mensaje="Datos del consulta por codigo"
             print(datos)

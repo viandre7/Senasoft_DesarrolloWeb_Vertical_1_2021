@@ -65,7 +65,10 @@ def consultarHistoria():
     Returns:
         [render_template: El formulario al cual va a renderizar]
     """
-    return render_template('user/consultarHistoria.html')
+    informacion = Consulta.query.all()
+    print(informacion)
+    print('___________________')
+    return render_template('user/consultarHistoria.html', datos=informacion)
 
 
 @app.route('/mostrarIniciarSesion')
