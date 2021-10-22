@@ -10,3 +10,6 @@ class Usuario(db.Model):
     # Necesarios para la relaicion
     empleado = db.relationship("Empleado",backref=db.backref('empleados',lazy=True))
     rol = db.relationship("Rol",backref=db.backref('roles',lazy=True))
+
+    def __repr__(self):
+        return f'{self.user_name},{self.contrasena}'

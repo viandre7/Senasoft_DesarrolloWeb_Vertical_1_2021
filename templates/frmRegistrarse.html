@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 {% block section %}
 
-    
+
     <div class="col-md-10 container fondoSection ">
         <br>
 
@@ -15,10 +15,10 @@
                     <br>
                 </div>
                 <br>
-    
+
                 <div class="col-md-12 contaiener" >
                     <form action="" class="form-group" id="frmRegistro" method="POST">
-                        <div class="container"> 
+                        <div class="container">
                             <br>
                             <div class="row justify-content-center ">
                                 <h5 class="h5Llenar">Llena la siguiente información</h5>
@@ -38,9 +38,9 @@
                                             name="txtCedula" >
                                     </div>
                                 </div>
-                                                        
+
                             </div>
-    
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-group mb-3 p-1">
@@ -48,7 +48,7 @@
                                         <input type="text" class="form-control" style="border: 1px solid #aaa;" placeholder="Nombres" id="txtNombre"
                                             name="txtNombre" >
                                     </div>
-                                </div>  
+                                </div>
                                 <div class="col-md-6">
                                     <div class="input-group mb-3 p-1">
                                         <span class="input-group-text" id="basic-addon1"><i class="far fa-id-card"></i></span>
@@ -56,10 +56,10 @@
                                             name="txtApellido" >
                                     </div>
                                 </div>
-    
-        
+
+
                             </div>
-    
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-group mb-3 p-1">
@@ -67,7 +67,7 @@
                                         <input type="tel" class="form-control" maxlength="10" placeholder="Celular"
                                             id="txtcelular" name="txtcelular" aria-label="E" aria-describedby="basic-addon1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" pattern="[0-9]{10}" >
                                     </div>
-                                </div> 
+                                </div>
 
                                 <div class="col-md-6">
                                     <!-- <label class="form-label m-1"> Cargo</label> -->
@@ -82,9 +82,9 @@
                                         </select>
                                     </div>
                                 </div>
-                             
+
                             </div>
-    
+
                             <div class="row md-6">
                                 <div class="col-md-12">
                                     <div class="input-group mb-3 p-1">
@@ -100,9 +100,12 @@
                             <div class="col-md-12 justify-content-center">
                                 <div class="justify-content-center aling-item-center text-center mt-3">
                                 <label class="form-label text-center font-family" ><strong>Seleccione firma</strong></label>
-                                      <div id="divImagen" class="justify-content-center aling-item-center text-center">
-                                        <i id="data" class="fas fa-file-image" style=" font-size:62px" ></i>
-                                        </div>
+                                <div id="divImagen" class="justify-content-center aling-item-center text-center">
+                                <label for="txtImagen">
+                                      <i id="data" class="fas fa-file-pdf" style=" font-size:62px" ></i>
+                                </label>
+                                      <input type="file" name="txtImagen" id="txtImagen" style="display:none;" >
+                                </div>
                                  </div>
                             </div>
                             <br>
@@ -121,11 +124,11 @@
             </div>
         </div>
 
-        <br>    
+        <br>
     </div>
 
 {% endblock %}
-   
-<!-- 
+
+<!--
 </body>
 </html> -->
