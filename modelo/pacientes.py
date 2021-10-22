@@ -12,4 +12,4 @@ class Paciente(db.Model):
     direccion = db.Column(db.String(45), nullable=False)
 
     # Necesarios para la relación
-    # persona = db.relationship("Persona",backref=db.backref('personas',lazy=True))
+    persona = db.relationship("Persona",backref=db.backref('persona',lazy=True))

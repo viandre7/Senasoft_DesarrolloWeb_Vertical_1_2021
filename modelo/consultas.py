@@ -18,5 +18,5 @@ class Consulta(db.Model):
     peso = db.Column(db.String(10), nullable=False)
     imc = db.Column(db.String(10), nullable=False)
     # Necesarios para la relaicion
-    # empleado = db.relationship("Empleado",backref=db.backref('empleados',lazy=True))
+    empleado = db.relationship("Empleado",backref=db.backref('empleado',lazy=True))
     paciente = db.relationship("Paciente",backref=db.backref('pacientes',lazy=True))

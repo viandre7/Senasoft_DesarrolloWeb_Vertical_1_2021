@@ -20,9 +20,7 @@ def inicioFrm():
     Returns:
         [render_template]: [El formulario al cual va a renderizar]
     """
-    informacion = Consulta.query.join(Paciente).join(Persona).all()
-    print(informacion)
-    print('___________________')
+    
     return render_template('frmIniciarSesion.html')
 
 
@@ -59,6 +57,13 @@ def subirHistoria():
     Returns:
         [render_template: El formulario al cual va a renderizar]
     """
+    informacion = Consulta.query.join(Paciente).join(Persona).all()
+    print(informacion)
+    print('___________________')
+    fechaRespuesta = informacion.resFechaRespuesta
+    nuevaFechaRespuesta = fechaRespuesta.strftime("%Y-%m-%d") 
+    datos=(informacion.paciente.persona.num_doc,informacion.paciente.persona.nombres, informacion.paciente.persona.apellidos,nuevaFechaRespuesta)
+    print(datos)
     return render_template('user/cargarHistoria.html')
     
 
