@@ -3,7 +3,7 @@ $(function () {
         subirArchivo();
     });
 
-    var num_doc;
+    var nombreCompleto;
     var fecha;
 
     function subirArchivo(){
@@ -19,7 +19,7 @@ $(function () {
             success: function (resultado) {
                 console.log(resultado);
                 if(resultado.estado){
-                    num_doc = (resultado.datos[0]).toString();
+                    nombreCompleto = (resultado.datos[0]).toString();
                     fecha = (resultado.datos[1]);
                     convertirArchivo();
                 }
@@ -32,7 +32,7 @@ $(function () {
 
     function convertirArchivo(){
         var parametros = {        
-            numeroDocumento: num_doc,
+            nomCompl: nombreCompleto,
             fechaConsulta: fecha
         };
         $.ajax({
@@ -56,7 +56,7 @@ $(function () {
 
     function convertirEscalaGrises(){
         var parametros = {        
-            numeroDocumento: num_doc,
+            nomCompl: nombreCompleto,
             fechaConsulta: fecha
         };
         $.ajax({
@@ -77,7 +77,7 @@ $(function () {
 
     function convertirImagen(){
         var parametros = {        
-            numeroDocumento: num_doc,
+            nomCompl: nombreCompleto,
             fechaConsulta: fecha
         };
         $.ajax({
