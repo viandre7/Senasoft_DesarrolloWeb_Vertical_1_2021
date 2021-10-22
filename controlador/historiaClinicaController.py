@@ -1,3 +1,4 @@
+'''
 from app import app
 from flask import Flask, request, render_template,jsonify,session
 from werkzeug.utils import secure_filename
@@ -108,7 +109,7 @@ def convertirImagen():
 
     return jsonify({"estado":estado, "datos":datos, "mensaje":mensaje})
 
-
+'''
     
     
 
