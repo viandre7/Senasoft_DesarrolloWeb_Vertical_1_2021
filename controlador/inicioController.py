@@ -3,6 +3,8 @@ from modelo.usuarios import *
 from modelo.roles import *
 from modelo.empleados import *
 from modelo.cargos import *
+from modelo.pacientes import *
+from modelo.personas import *
 from flask import Flask, request, render_template,jsonify,session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
@@ -14,13 +16,9 @@ from modelo.personas import *
 
 
 @app.route('/')
-def inicioFrm():
-    """[summary]
-    Función que permite renderizar al frmIniciarSesión
-    Returns:
-        [render_template]: [El formulario al cual va a renderizar]
-    """
-    
+def inicio():
+    user = Usuario.query.all()
+    print(user)
     return render_template('frmIniciarSesion.html')
 
 
@@ -38,7 +36,7 @@ def registrar():
 @app.route('/inicioUsuario')
 def iniciarSesionUsu():
     """[summary]
-    Función que permite renderizar al inicio de usuario si la variable user 
+    Función que permite renderizar al inicio de usuario si la variable user
     está creada, de lo contrario renderiza de nuevo al formulario
     Returns:
         [render_template]: [El formulario al cual va a renderizar]
@@ -57,15 +55,8 @@ def subirHistoria():
     Returns:
         [render_template: El formulario al cual va a renderizar]
     """
-    informacion = Consulta.query.join(Paciente).join(Persona).all()
-    print(informacion)
-    print('___________________')
-    fechaRespuesta = informacion.resFechaRespuesta
-    nuevaFechaRespuesta = fechaRespuesta.strftime("%Y-%m-%d") 
-    datos=(informacion.paciente.persona.num_doc,informacion.paciente.persona.nombres, informacion.paciente.persona.apellidos,nuevaFechaRespuesta)
-    print(datos)
     return render_template('user/cargarHistoria.html')
-    
+
 
 @app.route('/consultarHistoria')
 def consultarHistoria():
@@ -74,7 +65,10 @@ def consultarHistoria():
     Returns:
         [render_template: El formulario al cual va a renderizar]
     """
-    return render_template('user/consultarHistoria.html')
+    informacion = Consulta.query.all()
+    print(informacion)
+    print('___________________')
+    return render_template('user/consultarHistoria.html', datos=informacion)
 
 
 @app.route('/mostrarIniciarSesion')

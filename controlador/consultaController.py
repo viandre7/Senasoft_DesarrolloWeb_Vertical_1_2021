@@ -55,7 +55,7 @@ def listarInformacion():
         if(informacion!=None):
             fechaConsulta = informacion.fecha_consulta
             nuevaFechaConsulta = fechaConsulta.strftime("%Y-%m-%d") 
-            datos=(informacion.paciente.persona.num_doc,informacion.paciente.persona.nombres, informacion.paciente.persona.apellidos,nuevaFechaConsulta)
+            datos=(informacion.paciente.persona.num_doc,informacion.paciente.persona.nombres, informacion.paciente.persona.apellidos, nuevaFechaConsulta)
             estado=True
             mensaje="Datos del consulta por codigo"
             print(datos)

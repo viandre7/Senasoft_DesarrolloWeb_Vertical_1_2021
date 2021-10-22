@@ -1,15 +1,15 @@
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
 
-project_id ='119257377126'
-location = 'us' # Format is 'us' or 'eu'
-processor_id ='7a7253cb985a49f2' # Create processor in Cloud Console
-file_path ='otro.pdf' # The local file in your current working directory gcloud config set project my-project-document-329520
+
+
+
 ENDPOINT = 'https://us-documentai.googleapis.com/v1/projects/119257377126/locations/us/processors/7a7253cb985a49f2:process'
 
 
 
-def process_document(project_id=project_id, location=location, processor_id=processor_id,  file_path=file_path):
+
+def process_document(project_id, location, processor_id,  file_path):
 
     # Set endpoint to EU
     # Instantiates a client
@@ -17,8 +17,6 @@ def process_document(project_id=project_id, location=location, processor_id=proc
 
 
     client = documentai.DocumentProcessorServiceClient()
-
-
 
     # The full resource name of the processor, e.g.:
     # projects/project-id/locations/location/processor/processor-id
@@ -52,19 +50,20 @@ def process_document(project_id=project_id, location=location, processor_id=proc
             fieldValue = get_text(form_field.field_value,document)
             valueConfidence = round(form_field.field_value.confidence,4)
             #print(fieldName+fieldValue +"  (Confidence Scores: "+str(nameConfidence)+", "+str(valueConfidence)+")")
-            print(fieldName+fieldValue)
+            #print(fieldName+fieldValue)
             lista.append(fieldName+fieldValue)
-        print(lista)
+        #print(lista)
         fin = []
         for x in lista:
             key,value = x.strip("\n").split(':')[:2]
             otro = key,value
             fin.append(otro)
-            print(f"key{key}=>{value}")
-        print("holaaa")
-        print(fin)
-        return fin
-
+            #print(f"key{key}=>{value}")
+        #print("holaaa")
+        #print(fin)
+    #print("primer dato de la lista")
+    #print(fin[0])
+    return fin
 
 
 def get_text(doc_element: dict, document: dict):
@@ -85,5 +84,3 @@ def get_text(doc_element: dict, document: dict):
         end_index = int(segment.end_index)
         response += document.text[start_index:end_index]
     return response
-
-process_document()

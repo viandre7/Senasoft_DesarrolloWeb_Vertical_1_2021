@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, request, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
@@ -17,10 +18,16 @@ db = SQLAlchemy(app)
 app.config['UPLOAD_FOLDER']= './static/archivos'
 
 #Lllamado a los controladores
+from keyword import *
+
+from controlador.documento import *
+from controlador.prueba import *
 from controlador.usuarioController import *
 from controlador.inicioController import *
+from controlador.historiaController import *
 from controlador.empleadoController import *
 from controlador.consultaController import *
+
 
 # Iniciar la aplicacion
 if __name__ == "__main__":

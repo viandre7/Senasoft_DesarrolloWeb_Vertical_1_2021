@@ -31,17 +31,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for d in datos %}
                                     
-                                    <tr id="fila" class="primeraFila">
-                                        <td id="tblFecha"> </td>
-                                        <td id="tblIdentificacion"></td>
-                                        <td id="tblNombres"></td>
-                                        <td id="tblApellidos"></td>
-                                        <td style="text-align: center; " id="anexo" class=""><a id="verPDF" href=""  target="_blank"><i class="fas fa-file-pdf  fa-2x" style="color:black"></i></a></td>
-                                        <!-- <td id="pAccion" align="center">
-                                            <button class="btn btn-warning fas fa-edit editar" data-id=" "></button>
-                                        </td> -->
-                                    </tr>
+                                        <tr id="fila" class="primeraFila">
+                                            <td style="text-align: center;" id="tblFecha">{{d.fecha_consulta}} </td>
+                                            <td style="text-align: center;" id="tblIdentificacion">{{d.paciente.person.num_doc}}</td>
+                                            <td style="text-align: center;" id="tblNombres">{{d.paciente.person.nombres}}</td>
+                                            <td style="text-align: center;" id="tblApellidos">{{d.paciente.person.apellidos}}</td>
+                                            <td style="text-align: center; " id="anexo" class=""><a id="verPDF" href=""  target="_blank"><i class="fas fa-file-pdf  fa-2x" style="color:black"></i></a></td>
+                                            <!-- <td id="pAccion" align="center">
+                                                <button class="btn btn-warning fas fa-edit editar" data-id=" "></button>
+                                            </td> -->
+                                        </tr>
+                                    {% endfor %}
                                     
                                 </tbody>
                             </table>

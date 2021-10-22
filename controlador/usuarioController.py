@@ -4,6 +4,7 @@ from modelo.roles import *
 from modelo.empleados import *
 from modelo.cargos import *
 from modelo.personas import *
+from modelo.pacientes import *
 from flask import Flask, request, render_template,jsonify,session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
@@ -16,7 +17,6 @@ def iniciarSesion():
     password=request.form['txtClave']
     print(login + password)
     if(login and password):
-        print("entroooo al iff")
         try:
             print("aquii")
             usuario = Usuario.query.filter(Usuario.user_name==login).\
@@ -24,7 +24,7 @@ def iniciarSesion():
             print("aqui usuario",usuario)
             if(usuario!=None):
                 #se crea la variable de sesión
-                session['user']=login
+                session['user'] = login
                 print('Se inicio sesion')
                 return render_template("user/inicioUsuario.html")
             else:
